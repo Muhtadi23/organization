@@ -1,6 +1,6 @@
-import About from '@/app/components/Homepage Comp/About';
-import Banner from '@/app/components/Homepage Comp/Banner';
-import BestFeatures from '@/app/components/Homepage Comp/BestFeatures';
+import About from '@/app/components/HomepageComp/About';
+import Banner from '@/app/components/HomepageComp/Banner';
+import BestFeatures from '@/app/components/HomepageComp/BestFeatures';
 import React from 'react';
 
 const Homepage = () => {
