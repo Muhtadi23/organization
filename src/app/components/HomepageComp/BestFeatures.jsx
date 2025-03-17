@@ -45,18 +45,18 @@ const BestFeatures = () => {
                 heading="Everything You Need to Succeed"
                 subHeading="Our platform provides all the tools you need to build, deploy, and scale your applications.">
             </SectionTitle>
-            <div className="mx-auto grid grid-cols-3 gap-4">
+            <div className="mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
                 {cardData.map((card, index) => (
                     <div
                         key={index}
-                        className="group relative overflow-hidden rounded-lg border bg-background p-6 shadow-md transition-all hover:shadow-xl hover:-translate-y-1"
+                        className="group relative overflow-hidden rounded-lg border p-6 transition-all hover:-translate-y-1"
                     >
-                        <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-bl from-primary/20 to-transparent rounded-bl-full"></div>
+                        <div className="absolute top-0 right-0 h-20 w-20"></div>
                         <div className="mb-4 flex items-center gap-2">
                             {card.icon}
                             <h3 className="text-xl font-bold">{card.title}</h3>
                         </div>
-                        <p className="text-muted-foreground">{card.description}</p>
+                        <p className="">{card.description}</p>
                     </div>
                 ))}
             </div>
