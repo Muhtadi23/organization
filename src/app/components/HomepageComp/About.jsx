@@ -1,5 +1,5 @@
 import React from 'react';
-import SectionTitle from '../shared/SectionTitle';
+import SectionTitle from '../SharedComp/SectionTitle';
 import Image from 'next/image';
 
 const About = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaCode, FaDatabase, FaLock, FaGlobe, FaBolt, FaCommentDots } from "react-icons/fa";
-import SectionTitle from '../Shared/SectionTitle';
+import SectionTitle from '../SharedComp/SectionTitle';
 
 
 const BestFeatures = () => {
