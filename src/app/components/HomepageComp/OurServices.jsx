@@ -17,7 +17,7 @@ const services = [
     {
         icon: <FaShoppingCart />,
         title: "E-commerce Solution",
-        description: "We provide full-fledged e-commerce solutions to help businesses establish an effective online presence and boost sales."
+        description: "We provide full-fledged e-commerce solutions to help businesses establish an effective online presence and boost sales. "
     },
     {
         icon: <FaChartBar />,

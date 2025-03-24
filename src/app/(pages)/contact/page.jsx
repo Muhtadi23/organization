@@ -1,8 +1,7 @@
 import React from 'react';
 import { FaArrowRight, FaPhone } from 'react-icons/fa';
-import { MdEmail } from "react-icons/md";
 
-const Page = () => {
+const page = () => {
     return (
         <div className='w-full py-12 md:py-24 lg:py-32 xl:py-48 grid grid-cols-1 md:grid-cols-2 gap-12 px-6 md:px-12 lg:px-24'>
             {/* Left Section */}
@@ -20,64 +19,75 @@ const Page = () => {
                 </div>
             </div>
 
-                {/* Form Section */}
-                <div className='bg-gray-100 p-6 md:p-8 rounded-xl shadow-md'>
-                    <form className="space-y-4">
-                        {/* Purpose Selection */}
-                        <div>
-                            <label className="block font-bold mb-1">Select Your Purpose</label>
-                            <select className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
-                                <option disabled selected>Choose an option</option>
-                                <option>Web Development</option>
-                                <option>Software Development</option>
-                                <option>Mobile App Development</option>
-                                <option>Digital Marketing</option>
-                            </select>
-                        </div>
+            {/* Form Section */}
+            <div className='bg-gray-100 p-6 md:p-8 rounded-xl shadow-md'>
+                <form className="space-y-4">
+                    {/* Purpose Selection */}
+                    <div>
+                        <label className="block font-bold mb-1">Select Your Purpose</label>
+                        <select className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                            <option selected>Choose an option</option>
+                            <option>Web Development</option>
+                            <option>Software Development</option>
+                            <option>Mobile App Development</option>
+                            <option>Digital Marketing</option>
+                        </select>
+                    </div>
 
-                        {/* Name & Email */}
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                            <div>
-                                <label className="block font-bold mb-1">Name</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label className="block font-bold mb-1">Email</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        {/* Company Name */}
+                    {/* Name & Email */}
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                         <div>
-                            <label className="block font-bold mb-1">Company</label>
+                            <label className="block font-bold mb-1">Name</label>
                             <input
                                 type="text"
-                                name="company"
+                                name="name"
                                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
                                 required
                             />
                         </div>
-
-                        {/* Submit Button */}
-                        <div className="mt-4">
-                            <button type="submit" className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition">
-                                Submit
-                            </button>
+                        <div>
+                            <label className="block font-bold mb-1">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                                required
+                            />
                         </div>
-                    </form>
-                </div>
+                    </div>
+
+                    {/* Company Name */}
+                    <div>
+                        <label className="block font-bold mb-1">Company</label>
+                        <input
+                            type="text"
+                            name="company"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                            required
+                        />
+                    </div>
+
+                    {/* Message Section */}
+                    <div>
+                        <label className="block font-bold mb-1">Message</label>
+                        <textarea
+                            name="message"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="mt-4">
+                        <button type="submit" className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition">
+                            Submit
+                        </button>
+                    </div>
+                </form>
             </div>
+        </div>
     );
 };
 
-export default Page;
+export default page;
