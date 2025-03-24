@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div className="py-10 bg-gray-50">
             <SectionTitle heading="WHO WE ARE" />
-            <div className="p-6 grid lg:grid-cols-2 sm:grid-cols-1 items-center justify-between gap-8 mx-auto">
+            <div className="py-12 grid lg:grid-cols-2 sm:grid-cols-1 items-center justify-between gap-8 mx-auto">
                 <div className="space-y-5">
                     <h1 className='text-4xl font-bold text-gray-800'>Name...</h1>
                     <p className='leading-relaxed'>

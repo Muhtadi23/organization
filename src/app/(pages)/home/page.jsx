@@ -1,6 +1,7 @@
 import About from '@/app/components/HomepageComp/About';
 import Banner from '@/app/components/HomepageComp/Banner';
 import BestFeatures from '@/app/components/HomepageComp/BestFeatures';
+import OurServices from '@/app/components/HomepageComp/OurServices';
 import React from 'react';
 
 const Homepage = () => {
@@ -9,6 +10,7 @@ const Homepage = () => {
             <Banner />
             <About />
             <BestFeatures />
+            <OurServices />
         </div>
     );
 };

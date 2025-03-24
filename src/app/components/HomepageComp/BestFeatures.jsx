@@ -45,7 +45,7 @@ const BestFeatures = () => {
                 heading="Everything You Need to Succeed"
                 subHeading="Our platform provides all the tools you need to build, deploy, and scale your applications.">
             </SectionTitle>
-            <div className="mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
+            <div className="mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 py-12">
                 {cardData.map((card, index) => (
                     <div
                         key={index}
