@@ -36,13 +36,13 @@ const Products = () => {
             <SectionTitle heading="Our Products" />
 
             {/* Product Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 max-w-7xl mx-auto py-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mx-auto py-10">
                 {products.map((product, index) => (
                     <div
                         key={index}
                         className="bg-white shadow-lg rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105"
                     >
-                        <div className="relative w-full h-48">
+                        <div className="relative w-full h-60">
                             <img
                                 src={product.image}
                                 alt={product.title}

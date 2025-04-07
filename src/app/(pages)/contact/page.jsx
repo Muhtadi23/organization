@@ -1,89 +1,91 @@
+import Image from 'next/image';
 import React from 'react';
-import { FaArrowRight, FaPhone } from 'react-icons/fa';
+import { MdEmail } from "react-icons/md";
+import { FaPhone } from "react-icons/fa6";
 
 const page = () => {
     return (
-        <div className='w-full py-12 md:py-24 lg:py-32 xl:py-48 grid grid-cols-1 md:grid-cols-2 gap-12 px-6 md:px-12 lg:px-24'>
-            {/* Left Section */}
-            <div className='flex flex-col justify-center space-y-6'>
-                <div className="space-y-4">
-                    <h1 className='text-3xl font-bold sm:text-5xl xl:text-6xl'>Let's Build Something Amazing Together</h1>
-                    <p className='max-w-[600px] md:text-xl text-gray-600'>
-                        Ready to transform your business? Our team is here to help you get started.
+        <div className="w-full py-16 px-6 md:px-12 bg-white text-gray-800">
+            {/* Top Section with heading and image */}
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto'>
+                <div className="space-y-6">
+                    <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">
+                        Let's Build Something Amazing Together
+                    </h1>
+                    <p className="max-w-xl text-gray-600 md:text-lg">
+                        Ready to transform your business? Our team is here to help you get started with customized software solutions.
                     </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                    <button className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-200 transition">
-                        Choose a Demo <FaArrowRight className="h-4 w-4" />
-                    </button>
+
+                <div className="flex justify-center">
+                    <Image
+                        src="/contact.png"
+                        width={600}
+                        height={600}
+                        alt="Contact Us"
+                        className="w-full max-w-md object-contain"
+                        priority
+                    />
                 </div>
             </div>
 
-            {/* Form Section */}
-            <div className='bg-gray-100 p-6 md:p-8 rounded-xl shadow-md'>
-                <form className="space-y-4">
-                    {/* Purpose Selection */}
+            {/* Contact Section */}
+            <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 py-16">
+                {/* Left Info Box */}
+                <div className="space-y-6">
                     <div>
-                        <label className="block font-bold mb-1">Select Your Purpose</label>
-                        <select className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
-                            <option selected>Choose an option</option>
-                            <option>Web Development</option>
-                            <option>Software Development</option>
-                            <option>Mobile App Development</option>
-                            <option>Digital Marketing</option>
-                        </select>
+                        <h4 className='text-xl font-semibold mb-2'>Our Location</h4>
+                        <p>2/H, 2/23 Mirpur<br />Dhaka 1216, Bangladesh</p>
+                        <p className='flex items-center gap-2 mt-3 text-gray-700'>
+                            <MdEmail className="text-rose-500" /> info@skyit-bd.com
+                        </p>
                     </div>
 
-                    {/* Name & Email */}
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                        <div>
-                            <label className="block font-bold mb-1">Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label className="block font-bold mb-1">Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    {/* Company Name */}
                     <div>
-                        <label className="block font-bold mb-1">Company</label>
+                        <h4 className='text-xl font-semibold mt-6'>Say Hello</h4>
+                        <p className='flex items-center gap-2 text-gray-700'>
+                            <FaPhone className="text-rose-500" /> +092394779303
+                        </p>
+                    </div>
+                </div>
+
+                {/* Contact Form */}
+                <form className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <input
                             type="text"
-                            name="company"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                            placeholder="Name"
+                            className="bg-[#fefafa] w-full px-4 py-3 rounded-full border border-[#f9eaea] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-200"
+                            required
+                        />
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            className="bg-[#fefafa] w-full px-4 py-3 rounded-full border border-[#f9eaea] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-200"
                             required
                         />
                     </div>
 
-                    {/* Message Section */}
-                    <div>
-                        <label className="block font-bold mb-1">Message</label>
-                        <textarea
-                            name="message"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                            rows="4"
-                            required
-                        ></textarea>
-                    </div>
+                    <input
+                        type="text"
+                        placeholder="Subject"
+                        className="bg-[#fefafa] w-full px-4 py-3 rounded-full border border-[#f9eaea] placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-rose-200"
+                        required
+                    />
 
-                    {/* Submit Button */}
-                    <div className="mt-4">
-                        <button type="submit" className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition">
-                            Submit
-                        </button>
-                    </div>
+                    <textarea
+                        placeholder="Your Comment"
+                        rows={5}
+                        className="bg-[#fefafa] w-full px-4 py-3 rounded-2xl border border-[#f9eaea] placeholder:text-gray-500 resize-none focus:outline-none focus:ring-2 focus:ring-rose-200"
+                        required
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        className="bg-gradient-to-r from-rose-400 to-rose-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                        Send Your Message
+                    </button>
                 </form>
             </div>
         </div>

@@ -28,8 +28,7 @@ const services = [
 
 const OurServices = () => {
     return (
-        <div className='p-4'>
-            
+        <div className='p-4 bg-gray-50'>
             <section className="w-full py-12 md:py-24 lg:py-32">
                 <div className="px-4 md:px-6">
                 <SectionTitle heading="Our Core Services" subHeading="Comprehensive solutions to power your digital transformation"></SectionTitle>

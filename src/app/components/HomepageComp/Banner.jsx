@@ -4,7 +4,7 @@ import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
 const Banner = () => {
     return (
         <div>
-            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 ">
                 <div className="px-4 md:px-6">
                     <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
                         {/* Left Content Section */}
@@ -30,7 +30,7 @@ const Banner = () => {
 
                         {/* Right Code Editor UI */}
                         <div className="flex items-center justify-center">
-                            <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl shadow-primary/20 border border-border/50 bg-gray-900">
+                            <div className="relative w-full h-[350px] md:h-[400px] lg:h-[500px] overflow-hidden shadow-2xl shadow-primary/20 border border-border/50 bg-gray-900">
                                 {/* Background Gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black opacity-80"></div>
 
