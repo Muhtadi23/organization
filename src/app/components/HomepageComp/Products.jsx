@@ -31,7 +31,7 @@ const products = [
 
 const Products = () => {
     return (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16">
             {/* Section Title */}
             <SectionTitle heading="Our Products" />
 

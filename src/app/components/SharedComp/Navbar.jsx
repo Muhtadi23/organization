@@ -13,19 +13,20 @@ export default function Navbar() {
 
     const navLinks = [
         { href: "/", label: "Home" },
-        { href: "/products", label: "Products" },
-        { href: "/projects", label: "Projects" },
         { href: "/company", label: "Company" },
+        { href: "/products", label: "Products" },
+        { href: "/blog", label: "Blog" },
+        { href: "/projects", label: "Projects" },
         { href: "/contact", label: "Contact" },
     ]
 
     return (
-        <header className="w-full sticky top-0 z-50 backdrop-blur-sm">
+        <div className="w-full sticky top-0 z-50 backdrop-blur-sm">
             {/* Desktop Navigation */}
             <div className="hidden md:flex justify-between items-center px-8 py-5 max-w-7xl mx-auto">
                 <div className="flex items-center">
                     <Link href="/" className="text-2xl font-bold transition-transform hover:scale-105">
-                        <span className="flex items-center gap-2">
+                        <span className="flex items-center gap-2 text-white">
                             <span className="text-3xl">
                                 <SiCodersrank />
                             </span>
@@ -33,21 +34,21 @@ export default function Navbar() {
                         </span>
                     </Link>
                 </div>
-                <nav>
+                <div>
                     <ul className="flex space-x-10">
                         {navLinks.map(({ href, label }) => (
                             <li key={href} className="relative group">
                                 <Link
                                     href={href}
-                                    className="block py-2 font-medium tracking-wide text-gray-800 transition-colors hover:text-black"
+                                    className="block py-2 font-medium tracking-wide text-white60 transition-colors hover:text-white"
                                 >
                                     {label}
-                                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white60 transition-all duration-300 ease-in-out group-hover:w-full"></span>
                                 </Link>
                             </li>
                         ))}
                     </ul>
-                </nav>
+                </div>
             </div>
 
             {/* Mobile Navigation */}
@@ -55,7 +56,7 @@ export default function Navbar() {
                 <div className="flex justify-between items-center px-5 py-4">
                     <button
                         onClick={toggleMenu}
-                        className="focus:outline-none p-1 rounded-md hover:bg-gray-100 transition-colors"
+                        className="focus:outline-none p-1 rounded-md text-white transition-colors"
                         aria-label="Toggle menu"
                     >
                         <svg
@@ -75,7 +76,7 @@ export default function Navbar() {
                         </svg>
                     </button>
                     <Link href="/" className="text-2xl font-bold">
-                        <span className="flex items-center gap-2">
+                        <span className="flex items-center gap-2 text-white">
                             <span className="text-2xl">
                                 <SiCodersrank />
                             </span>
@@ -87,13 +88,13 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {isOpen && (
-                    <nav className="border-t shadow-inner bg-gray-50">
+                    <nav className="border-t shadow-inner bg-black90">
                         <ul className="py-2">
                             {navLinks.map(({ href, label }) => (
                                 <li key={href} className="relative">
                                     <Link
                                         href={href}
-                                        className="block px-5 py-3 hover:bg-white transition-all duration-200 font-medium"
+                                        className="block px-5 py-3 text-white60 hover:bg-white transition-all duration-200 font-medium"
                                         onClick={() => setIsOpen(false)}
                                     >
                                         {label}
@@ -105,7 +106,7 @@ export default function Navbar() {
                     </nav>
                 )}
             </div>
-        </header>
+        </div>
     )
 }
 

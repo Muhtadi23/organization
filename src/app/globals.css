@@ -1,7 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #0A0E15;
+  --secondary: #202531;
+  --black60: #667085;
+  --white: #F0f1F5;
+  --white80: #E0E4EB;
+  --white60: #BFC6D4;
+}
+
+@theme {
+  --color-black: var(--primary);
+  --color-black90: var(--secondary);
+  --color-black60: var(--black60);
+  --color-white: var(--white);
+  --color-white80: var(--white80);
+  --color-white60: var(--white60);
+
 }
 

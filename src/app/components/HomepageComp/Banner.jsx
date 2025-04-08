@@ -4,27 +4,28 @@ import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
 const Banner = () => {
     return (
         <div>
-            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 ">
+            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
                 <div className="px-4 md:px-6">
                     <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
                         {/* Left Content Section */}
                         <div className="flex flex-col justify-center space-y-4">
                             <div className="space-y-2">
-                                <h1 className="text-3xl font-bold sm:text-5xl xl:text-6xl">
+                                <h1 className="text-3xl font-bold sm:text-5xl xl:text-6xl text-white">
                                     Accelerate Your Digital Transformation
                                 </h1>
-                                <p className="max-w-[600px] md:text-xl">
+                                <p className="max-w-[600px] md:text-xl text-white60">
                                     Powerful software solutions that drive innovation and growth
                                     for forward-thinking businesses.
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                                <button className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-200">
-                                    Get Started <FaArrowRight className="h-4 w-4" />
+                                <button className="text-white60 flex items-center justify-center gap-2 px-4 py-2 border border-gray-200 hover:bg-white hover:text-black transition duration-500 group">
+                                    Get Started
+                                    <FaArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
                                 </button>
-                                <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-200">
+                                {/* <button className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-200">
                                     Book a Demo
-                                </button>
+                                </button> */}
                             </div>
                         </div>
 

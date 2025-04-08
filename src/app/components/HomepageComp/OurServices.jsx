@@ -1,54 +1,106 @@
+'use client'
 import React from 'react';
-import { FaCode, FaGlobe, FaShoppingCart, FaChartBar } from "react-icons/fa";
+import {
+    Store,
+    BarChart3,
+    Users,
+    ShoppingCart,
+    Settings,
+    Headphones
+} from "lucide-react";
 import SectionTitle from '../SharedComp/SectionTitle';
+import { motion } from 'framer-motion';
+
+// Parent variant for staggering children
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.2, // delay between each card animation
+        },
+    },
+};
+
+// Child card animation variant
+const fadeUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 // Services data array
-const services = [
+
+const cardData = [
     {
-        icon: <FaCode />,
-        title: "Custom Software",
-        description: "We are devoted to helping you with custom digital software experiences. We use the most advanced approaches to design your dream solution."
+        icon: <Store className="h-10 w-10 text-primary" />,
+        title: "Point of Sale (POS)",
+        description:
+            "Optimize your in-store sales with a user-friendly POS system that supports multiple payment methods, tracks inventory in real-time, generates receipts, and provides detailed sales analytics for smarter business decisions."
     },
     {
-        icon: <FaGlobe />,
-        title: "Web App Development",
-        description: "Comprehensive web application development services tailored to your business needs, from responsive design to complex backend systems."
+        icon: <BarChart3 className="h-10 w-10 text-primary" />,
+        title: "Enterprise Resource Planning (ERP)",
+        description:
+            "Seamlessly connect finance, human resources, procurement, inventory, and other departments with a centralized ERP system. Gain full visibility into operations, automate workflows, and boost productivity across your organization."
     },
     {
-        icon: <FaShoppingCart />,
-        title: "E-commerce Solution",
-        description: "We provide full-fledged e-commerce solutions to help businesses establish an effective online presence and boost sales. "
+        icon: <Users className="h-10 w-10 text-primary" />,
+        title: "Customer Relationship Management (CRM)",
+        description:
+            "Build stronger customer relationships by managing contacts, tracking interactions, automating marketing efforts, and monitoring sales pipelines. Our CRM system empowers your team to deliver personalized customer experiences at scale."
     },
     {
-        icon: <FaChartBar />,
-        title: "CRM and ERP Software",
-        description: "Integrated CRM and ERP solutions to streamline your business operations and manage customer relationships efficiently."
+        icon: <ShoppingCart className="h-10 w-10 text-primary" />,
+        title: "E-Commerce Solutions",
+        description:
+            "Launch and grow your online store with a feature-rich e-commerce platform. Manage products, orders, payments, promotions, and shipping all in one place. Integrate with third-party tools to scale your business globally."
+    },
+    {
+        icon: <Settings className="h-10 w-10 text-primary" />,
+        title: "Custom Software Development",
+        description:
+            "We develop tailored software solutions to meet your specific business challenges. Whether it's automating internal processes or building customer-facing applications, our development team delivers scalable, secure, and modern systems."
+    },
+    {
+        icon: <Headphones className="h-10 w-10 text-primary" />,
+        title: "Dedicated Support",
+        description:
+            "Our expert support team is available 24/7 to assist you with troubleshooting, updates, and technical guidance. We’re committed to ensuring your systems run smoothly so you can focus on growing your business."
     }
 ];
 
+
 const OurServices = () => {
     return (
-        <div className='p-4 bg-gray-50'>
+        <div className='p-4'>
             <section className="w-full py-12 md:py-24 lg:py-32">
                 <div className="px-4 md:px-6">
-                <SectionTitle heading="Our Core Services" subHeading="Comprehensive solutions to power your digital transformation"></SectionTitle>
-                    <div className="mx-auto grid items-start gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
-                        {services.map((service, index) => (
-                            <div key={index} className="group relative overflow-hidden rounded-lg border p-6 shadow-md transition-all hover:shadow-xl hover:-translate-y-1 h-full flex flex-col">
-                                <div className="absolute top-0 right-0 h-20 w-20 rounded-bl-full"></div>
-                                <div className="relative space-y-4 flex flex-col flex-grow">
-                                    <div className="rounded-lg text-4xl bg-gray-200 w-fit p-2">
-                                        {service.icon}
+                    <SectionTitle heading="Design. Develop. Roll-Out. Maintain." subHeading="Our Services" />
+
+                    {/* Grid wrapper with parent motion for staggering */}
+
+                    <motion.div
+                        className="mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 py-12"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
+                        {cardData.map((card, index) => (
+                            <motion.div
+                                key={index}
+                                variants={fadeUpVariants}
+                                className="group relative flex flex-col justify-between shadow shadow-gray-900 h-full p-6 hover:-translate-y-1 "
+                            >
+                                <div>
+                                    <div className="mb-4 flex items-center gap-2 text-white">
+                                        {card.icon}
+                                        <h3 className="text-xl font-bold text-white80">{card.title}</h3>
                                     </div>
-                                    <h3 className="text-xl font-bold">{service.title}</h3>
-                                    <p className="text-sm flex-grow">
-                                        {service.description}
-                                    </p>
-                                    <span className="mt-2 block text-primary hover:underline cursor-pointer">Learn More...</span>
+                                    <p className="text-sm text-white60">{card.description}</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
         </div>

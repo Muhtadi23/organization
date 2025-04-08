@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const About = () => {
     return (
-        <div className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gray-50">
+        <div className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
             <div>
                 <SectionTitle heading="WHO WE ARE" />
                 <div className="py-12 grid lg:grid-cols-2 sm:grid-cols-1 items-center justify-between gap-8 mx-auto">

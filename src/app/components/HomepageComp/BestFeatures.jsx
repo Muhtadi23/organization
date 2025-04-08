@@ -1,77 +1,91 @@
-import {
-    Store,
-    BarChart3,
-    Users,
-    ShoppingCart,
-    Settings,
-    Headphones
-} from "lucide-react";
+'use client';
+
+import { Factory, BrainCircuit, Handshake, MessagesSquare } from 'lucide-react';
 import SectionTitle from "../SharedComp/SectionTitle";
+import { motion } from "framer-motion";
+
+// Parent container variant for staggering animation
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.2,
+        },
+    },
+};
+
+// Child animation variant for cards
+const fadeUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" },
+    },
+};
 
 const BestFeatures = () => {
-
-    const cardData = [
+    const services = [
         {
-            icon: <Store className="h-10 w-10 text-primary" />,
-            title: "Point of Sale (POS)",
+            icon: <Factory  className="w-8 h-8"/>, // or any other size/className you prefer
+            title: "Industry-Proven Quality Assurance",
             description:
-                "Optimize your in-store sales with a user-friendly POS system that supports multiple payment methods, tracks inventory in real-time, generates receipts, and provides detailed sales analytics for smarter business decisions."
+                "Our German quality management system ensures that you consistently receive the highest-quality results. We meet the requirements of your quality standard through disciplined Agile Testing, Automation, and Tool-Based Metrics."
+        },
+        // {
+        //     icon: <BrainCircuit  className="w-8 h-8" />,
+        //     title: "Highly Qualified Developers",
+        //     description:
+        //         "Our developers are highly educated software engineers with industry and research experience. A professional team of experts committed to continuously learn and innovate. Let's build new software together or enhance your current solution at the optimum cost."
+        // },
+        {
+            icon: <Handshake  className="w-8 h-8" />,
+            title: "Strategic Partnership",
+            description:
+                "Plan with certainty and scale as you need. Our strategic cooperation model provides you with dedicated experts available on a long-term basis. Enough resources at any time, conserving knowledge for future tasks and an accelerated development."
         },
         {
-            icon: <BarChart3 className="h-10 w-10 text-primary" />,
-            title: "Enterprise Resource Planning (ERP)",
+            icon:  <MessagesSquare className="w-8 h-8" />,
+            title: "Seamless Communication",
             description:
-                "Seamlessly connect finance, human resources, procurement, inventory, and other departments with a centralized ERP system. Gain full visibility into operations, automate workflows, and boost productivity across your organization."
-        },
-        {
-            icon: <Users className="h-10 w-10 text-primary" />,
-            title: "Customer Relationship Management (CRM)",
-            description:
-                "Build stronger customer relationships by managing contacts, tracking interactions, automating marketing efforts, and monitoring sales pipelines. Our CRM system empowers your team to deliver personalized customer experiences at scale."
-        },
-        {
-            icon: <ShoppingCart className="h-10 w-10 text-primary" />,
-            title: "E-Commerce Solutions",
-            description:
-                "Launch and grow your online store with a feature-rich e-commerce platform. Manage products, orders, payments, promotions, and shipping all in one place. Integrate with third-party tools to scale your business globally."
-        },
-        {
-            icon: <Settings className="h-10 w-10 text-primary" />,
-            title: "Custom Software Development",
-            description:
-                "We develop tailored software solutions to meet your specific business challenges. Whether it's automating internal processes or building customer-facing applications, our development team delivers scalable, secure, and modern systems."
-        },
-        {
-            icon: <Headphones className="h-10 w-10 text-primary" />,
-            title: "Dedicated Support",
-            description:
-                "Our expert support team is available 24/7 to assist you with troubleshooting, updates, and technical guidance. We’re committed to ensuring your systems run smoothly so you can focus on growing your business."
+                "Our proactive and honest communication is vital to the success of your project. We provide result driven project management and full transparency right from the start. You will always know what we are doing and how we are doing it."
         }
     ];
 
     return (
         <div className="p-4">
             <SectionTitle
-                heading="Everything You Need to Succeed"
-                subHeading="Our platform provides all the tools you need to build, deploy, and scale your applications."
+                heading="Things that set us apart from others"
+                subHeading="Why Us?"
             />
-            <div className="mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 py-12">
-                {cardData.map((card, index) => (
-                    <div
+            {/* Animated Grid Container */}
+            <motion.div
+                className="mx-auto grid items-start gap-8 py-20 md:grid-cols-2 lg:grid-cols-3"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+            >
+                {services.map((service, index) => (
+                    <motion.div
                         key={index}
-                        className="group relative flex flex-col justify-between h-full rounded-lg border p-6 transition-all hover:-translate-y-1"
+                        variants={fadeUpVariants}
+                        className="group relative overflow-hidden p-6 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col bg-black90"
                     >
-                        <div>
-                            <div className="mb-4 flex items-center gap-2">
-                                {card.icon}
-                                <h3 className="text-xl font-bold">{card.title}</h3>
+                        <div className="absolute top-0 right-0 h-20 w-20 rounded-bl-full"></div>
+                        <div className="relative space-y-4 flex flex-col flex-grow">
+                            <div className="rounded-lg text-4xl bg-gray-200 w-fit p-2">
+                                {service.icon}
                             </div>
-                            <p className="text-sm text-gray-600">{card.description}</p>
+                            <h3 className="text-xl font-bold text-white">{service.title}</h3>
+                            <p className="text-sm flex-grow text-white60">
+                                {service.description}
+                            </p>
+                            <span className="mt-2 block text-primary hover:underline cursor-pointer text-white">Learn More...</span>
                         </div>
-                        <div className="mt-6 h-1 w-16 bg-primary rounded-full group-hover:w-24 transition-all duration-300"></div>
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
         </div>
     );
 };
