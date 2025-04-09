@@ -5,14 +5,14 @@ import { FaPhone } from "react-icons/fa6";
 
 const page = () => {
     return (
-        <div className="w-full py-16 px-6 md:px-12 bg-white text-gray-800">
+        <div className="w-full py-16 px-6 md:px-12 ">
             {/* Top Section with heading and image */}
             <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto'>
                 <div className="space-y-6">
-                    <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">
+                    <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight text-white">
                         Let's Build Something Amazing Together
                     </h1>
-                    <p className="max-w-xl text-gray-600 md:text-lg">
+                    <p className="max-w-xl text-white60 md:text-lg">
                         Ready to transform your business? Our team is here to help you get started with customized software solutions.
                     </p>
                 </div>
@@ -32,18 +32,18 @@ const page = () => {
             {/* Contact Section */}
             <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 py-16">
                 {/* Left Info Box */}
-                <div className="space-y-6">
+                <div className="space-y-6 text-white60">
                     <div>
                         <h4 className='text-xl font-semibold mb-2'>Our Location</h4>
                         <p>2/H, 2/23 Mirpur<br />Dhaka 1216, Bangladesh</p>
-                        <p className='flex items-center gap-2 mt-3 text-gray-700'>
+                        <p className='flex items-center gap-2 mt-3 text-white80'>
                             <MdEmail className="text-rose-500" /> info@skyit-bd.com
                         </p>
                     </div>
 
                     <div>
                         <h4 className='text-xl font-semibold mt-6'>Say Hello</h4>
-                        <p className='flex items-center gap-2 text-gray-700'>
+                        <p className='flex items-center gap-2 text-white80'>
                             <FaPhone className="text-rose-500" /> +092394779303
                         </p>
                     </div>
