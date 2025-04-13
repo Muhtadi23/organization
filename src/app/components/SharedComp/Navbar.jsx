@@ -40,10 +40,10 @@ export default function Navbar() {
                             <li key={href} className="relative group">
                                 <Link
                                     href={href}
-                                    className="block py-2 font-medium tracking-wide text-skyBlue transition-colors hover:text-purple"
+                                    className="block py-2 font-semibold tracking-wide text-skyBlue transition-colors duration-500 hover:text-purple"
                                 >
                                     {label}
-                                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-skyBlue transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-skyBlue transition-all duration-500 ease-in-out group-hover:w-full"></span>
                                 </Link>
                             </li>
                         ))}
