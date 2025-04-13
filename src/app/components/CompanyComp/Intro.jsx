@@ -6,12 +6,12 @@ const Intro = () => {
         <div className="flex flex-col md:flex-row items-center justify-around gap-12 py-16 px-6">
             {/* Text Section */}
             <div className="w-full md:w-1/2 px-4 md:px-0 max-w-2xl space-y-6 text-center md:text-left">
-                <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                <h1 className="text-purple text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                     We enjoy <br className="hidden sm:block" />
                     a close cooperation <br className="hidden sm:block" />
                     with our clients
                 </h1>
-                <p className="text-white/60 text-base sm:text-lg md:text-xl leading-relaxed">
+                <p className="text-skyBlue text-base sm:text-lg md:text-xl leading-relaxed">
                     We avoid tough coordination processes and work out our solutions through dialogue.
                     This pays off in the successful realization of project goals.
                 </p>

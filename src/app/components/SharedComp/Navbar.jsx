@@ -26,7 +26,7 @@ export default function Navbar() {
             <div className="hidden md:flex justify-between items-center px-8 py-5 max-w-7xl mx-auto">
                 <div className="flex items-center">
                     <Link href="/" className="text-2xl font-bold transition-transform hover:scale-105">
-                        <span className="flex items-center gap-2 text-white">
+                        <span className="flex items-center gap-2 text-purple">
                             <span className="text-3xl">
                                 <SiCodersrank />
                             </span>
@@ -40,10 +40,10 @@ export default function Navbar() {
                             <li key={href} className="relative group">
                                 <Link
                                     href={href}
-                                    className="block py-2 font-medium tracking-wide text-white60 transition-colors hover:text-white"
+                                    className="block py-2 font-medium tracking-wide text-skyBlue transition-colors hover:text-purple"
                                 >
                                     {label}
-                                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-white60 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-skyBlue transition-all duration-300 ease-in-out group-hover:w-full"></span>
                                 </Link>
                             </li>
                         ))}

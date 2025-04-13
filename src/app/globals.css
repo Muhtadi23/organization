@@ -7,10 +7,14 @@
   --white: #F0f1F5;
   --white80: #E0E4EB;
   --white60: #BFC6D4;
+  --purple: #512DA8;
+  --skyBlue: #1E9AFF;
 }
 
 @theme {
   --color-black: var(--primary);
+  --color-purple: var(--purple);
+  --color-skyBlue : var(--skyBlue);
   --color-black90: var(--secondary);
   --color-black60: var(--black60);
   --color-white: var(--white);

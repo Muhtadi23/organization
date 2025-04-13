@@ -47,8 +47,8 @@ const Management = () => {
                             />
                         </div>
                         <div>
-                            <h6 className="text-white text-lg font-semibold">{member.name}</h6>
-                            <p className="text-white/60 text-sm">{member.role}</p>
+                            <h6 className="text-black text-lg font-semibold">{member.name}</h6>
+                            <p className="text-black90 text-sm">{member.role}</p>
                         </div>
                     </div>
                 ))}

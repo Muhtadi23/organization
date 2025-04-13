@@ -10,16 +10,16 @@ const Banner = () => {
                         {/* Left Content Section */}
                         <div className="flex flex-col justify-center space-y-4">
                             <div className="space-y-2">
-                                <h1 className="text-3xl font-bold sm:text-5xl xl:text-6xl text-white">
+                                <h1 className="text-3xl font-bold sm:text-5xl xl:text-6xl text-purple mb-2">
                                     Accelerate Your Digital Transformation
                                 </h1>
-                                <p className="max-w-[600px] md:text-xl text-white60">
+                                <p className="max-w-[600px] md:text-xl text-skyBlue">
                                     Powerful software solutions that drive innovation and growth
                                     for forward-thinking businesses.
                                 </p>
                             </div>
                             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                                <button className="text-white60 flex items-center justify-center gap-2 px-4 py-2 border border-gray-200 hover:bg-white hover:text-black transition duration-500 group">
+                                <button className="text-skyBlue flex items-center justify-center gap-2 px-4 py-2 border border-gray-200 hover:bg-white hover:text-black transition duration-500 group">
                                     Get Started
                                     <FaArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" />
                                 </button>

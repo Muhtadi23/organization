@@ -18,7 +18,7 @@ const LifeCycle = () => {
                         height={600}
                         src="/sdlc.png"
                         alt="Software Development Life Cycle"
-                        className="rounded-2xl shadow-xl transition-all duration-300 hover:scale-105"
+                        className=""
                     />
                 </div>
 
@@ -54,9 +54,9 @@ const LifeCycle = () => {
                             desc: "Ongoing support to fix bugs, release updates, and incorporate user feedback to ensure the product evolves with user needs.",
                         }
                     ].map((step, idx) => (
-                        <div key={idx} className="hover:bg-white/10 p-3 transition">
-                            <h3 className="text-lg font-semibold text-cyan-300 mb-1">{step.title}</h3>
-                            <p className="text-sm text-gray-300">{step.desc}</p>
+                        <div key={idx} className="text-black hover:bg-purple p-3 transition hover:text-white">
+                            <h3 className="text-lg font-bold mb-1">{step.title}</h3>
+                            <p className="text-sm">{step.desc}</p>
                         </div>
                     ))}
                 </div>
