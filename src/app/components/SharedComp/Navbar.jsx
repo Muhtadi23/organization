@@ -56,7 +56,7 @@ export default function Navbar() {
                 <div className="flex justify-between items-center px-5 py-4">
                     <button
                         onClick={toggleMenu}
-                        className="focus:outline-none p-1 rounded-md text-white transition-colors"
+                        className="focus:outline-none p-1 rounded-md text-purple transition-colors"
                         aria-label="Toggle menu"
                     >
                         <svg
@@ -76,7 +76,7 @@ export default function Navbar() {
                         </svg>
                     </button>
                     <Link href="/" className="text-2xl font-bold">
-                        <span className="flex items-center gap-2 text-white">
+                        <span className="flex items-center gap-2 text-purple">
                             <span className="text-2xl">
                                 <SiCodersrank />
                             </span>
