@@ -4,26 +4,26 @@ import SectionTitle from '../SharedComp/SectionTitle';
 
 const LifeCycle = () => {
     return (
-        <div className="px-6 py-14 max-w-7xl mx-auto text-white">
+        <div className="flex flex-col items-center px-6 py-14 max-w-7xl mx-auto text-white">
             <SectionTitle
                 subHeading="Understand the Key Phases of"
                 heading="Software Development Life Cycle"
             />
+            <Image
+                width={1000}
+                height={1000}
+                src="/sdlc.png"
+                alt="Software Development Life Cycle"
+                className="mt-8"
+            />
+            {/* <div className="w-full mx-auto mt-4"> */}
+            {/* Image */}
+            {/* <div className="w-full md:w-1/2"> */}
 
-            <div className="flex flex-col md:flex-row gap-10 items-center mt-4">
-                {/* Image */}
-                <div className="w-full md:w-1/2">
-                    <Image
-                        width={600}
-                        height={600}
-                        src="/sdlc.png"
-                        alt="Software Development Life Cycle"
-                        className=""
-                    />
-                </div>
+            {/* </div> */}
 
-                {/* Description list */}
-                <div className="w-full md:w-1/2 grid gap-2 text-base leading-relaxed">
+            {/* Description list */}
+            {/* <div className="w-full md:w-1/2 grid gap-2 text-base leading-relaxed">
                     {[
                         {
                             title: "1. Brainstorming & Setting Goals",
@@ -59,9 +59,9 @@ const LifeCycle = () => {
                             <p className="text-sm">{step.desc}</p>
                         </div>
                     ))}
-                </div>
-            </div>
+                </div> */}
         </div>
+        // </div>
     );
 };
 
