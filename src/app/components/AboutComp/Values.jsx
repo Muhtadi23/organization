@@ -50,11 +50,10 @@ export const coreValues = [
 
 const Values = () => {
     return (
-        <section className="w-full py-24 bg-gray-50">
-            <div className="container px-4 mx-auto">
+        <section className="py-24 bg-gray-50">
                 <SectionTitle subHeading="Core Values" heading="The Heart of Our Culture" />
 
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-16">
+                <div className="max-w-[1440px] mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-16">
                     {coreValues.map((value, index) => {
                         const Icon = value.icon;
                         return (
@@ -74,7 +73,6 @@ const Values = () => {
                         );
                     })}
                 </div>
-            </div>
         </section>
     );
 };

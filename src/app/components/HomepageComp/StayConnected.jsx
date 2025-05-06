@@ -3,7 +3,7 @@ import Button from '../SharedComp/Button';
 
 const StayConnected = () => {
     return (
-        <div className="py-20 px-6 bg-purple text-center mb-8">
+        <div className="py-32 px-6 bg-purple text-center mb-8">
             <div className="">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
                     Stay Updated
@@ -19,18 +19,7 @@ const StayConnected = () => {
                     />
                     <Button title="Subscribe" />
                 </form>
-
             </div>
-
-            {/* <div className='mt-16'>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                    Ready to Start Your Project?
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl text-white font-medium mb-6">
-                    Let's discuss your ideas and create something amazing together. Our team is ready to help you achieve your goals.
-                </p>
-                <Button title="Get Started" />
-            </div> */}
         </div>
     );
 };

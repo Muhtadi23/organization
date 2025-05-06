@@ -1,11 +1,13 @@
 "use client"
-
+import { usePathname } from "next/navigation"
 import { useState } from "react"
 import Link from "next/link"
 import { SiCodersrank } from "react-icons/si"
+import { motion } from "framer-motion"
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
+    const pathname = usePathname()
 
     const toggleMenu = () => {
         setIsOpen(!isOpen)
@@ -13,7 +15,7 @@ export default function Navbar() {
 
     const navLinks = [
         { href: "/", label: "Home" },
-        { href: "/about", label: "About" },
+        // { href: "/about", label: "About" },
         { href: "/company", label: "Company" },
         { href: "/products", label: "Products" },
         { href: "/blog", label: "Blog" },
@@ -21,17 +23,47 @@ export default function Navbar() {
         { href: "/contact", label: "Contact" },
     ]
 
+    const iconVariants = {
+        hidden: { scale: 0 },
+        visible: {
+            scale: 1,
+            transition: {
+                type: "spring",
+                stiffness: 200, 
+                damping: 18,
+                delay: 0.2,
+                duration: 1.2,
+            },
+        },
+    }
+    const textVariants = {
+        hidden: { x: -20, opacity: 0 },
+        visible: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                delay: 0.6,
+                type: "spring",
+                stiffness: 100,
+                damping: 17,
+                duration: 1.5,
+            },
+        },
+    }
+
     return (
         <div className="w-full sticky top-0 z-50 backdrop-blur-sm">
             {/* Desktop Navigation */}
             <div className="hidden md:flex justify-between items-center px-8 py-5 max-w-7xl mx-auto">
                 <div className="flex items-center">
-                    <Link href="/" className="text-2xl font-bold transition-transform hover:scale-105">
+                    <Link href="/" className="text-2xl font-bold">
                         <span className="flex items-center gap-2 text-purple">
-                            <span className="text-3xl">
+                            <motion.span className="text-3xl" initial="hidden" animate="visible" variants={iconVariants}>
                                 <SiCodersrank />
-                            </span>
-                            <span className="tracking-tight">Name</span>
+                            </motion.span>
+                            <motion.span className="tracking-tight" initial="hidden" animate="visible" variants={textVariants}>
+                                Name
+                            </motion.span>
                         </span>
                     </Link>
                 </div>
@@ -41,10 +73,14 @@ export default function Navbar() {
                             <li key={href} className="relative group">
                                 <Link
                                     href={href}
-                                    className="block py-2 font-semibold tracking-wide text-skyBlue transition-colors duration-500 hover:text-purple"
+                                    className={`block py-2 font-semibold tracking-wide transition-colors duration-500 ${pathname === href ? "text-purple" : "text-skyBlue hover:text-purple"
+                                        }`}
                                 >
                                     {label}
-                                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-skyBlue transition-all duration-500 ease-in-out group-hover:w-full"></span>
+                                    <span
+                                        className={`absolute left-0 bottom-0 h-0.5 bg-skyBlue transition-all duration-500 ease-in-out ${pathname === href ? "w-full" : "w-0 group-hover:w-full"
+                                            }`}
+                                    ></span>
                                 </Link>
                             </li>
                         ))}
@@ -78,10 +114,12 @@ export default function Navbar() {
                     </button>
                     <Link href="/" className="text-2xl font-bold">
                         <span className="flex items-center gap-2 text-purple">
-                            <span className="text-2xl">
+                            <motion.span className="text-2xl" initial="hidden" animate="visible" variants={iconVariants}>
                                 <SiCodersrank />
-                            </span>
-                            <span className="tracking-tight">Name</span>
+                            </motion.span>
+                            <motion.span className="tracking-tight" initial="hidden" animate="visible" variants={textVariants}>
+                                Name
+                            </motion.span>
                         </span>
                     </Link>
                     <div className="w-6"></div> {/* Empty div for balanced spacing */}
@@ -95,11 +133,11 @@ export default function Navbar() {
                                 <li key={href} className="relative">
                                     <Link
                                         href={href}
-                                        className="block px-5 py-3 text-white60 hover:bg-white transition-all duration-200 font-medium"
+                                        className={`block px-5 py-3 font-medium transition-all duration-200 ${pathname === href ? "text-white bg-white10" : "text-white60 hover:bg-white10"
+                                            }`}
                                         onClick={() => setIsOpen(false)}
                                     >
                                         {label}
-                                        <span className="absolute left-0 top-0 bottom-0 w-1 h-full bg-black opacity-0 transition-opacity duration-200 hover:opacity-100"></span>
                                     </Link>
                                 </li>
                             ))}
@@ -110,4 +148,3 @@ export default function Navbar() {
         </div>
     )
 }
-

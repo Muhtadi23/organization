@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-[#ffffff]">
         <Navbar />
-        <div className="max-w-[1440px] mx-auto">
+        <div className="">
           {children}
         </div>
         <Footer />

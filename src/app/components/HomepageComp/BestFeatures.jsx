@@ -52,7 +52,7 @@ const cardVariants = {
 
 const BestFeatures = () => {
     return (
-        <section className="w-full py-24 md:py-32">
+        <section className="max-w-[1440px] mx-auto py-24 md:py-32">
             <div className="container px-4 md:px-6 mx-auto">
                 <SectionTitle heading="Things that set us apart from others" subHeading="Why Us?" />
 

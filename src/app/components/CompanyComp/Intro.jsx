@@ -3,7 +3,7 @@ import React from 'react';
 
 const Intro = () => {
     return (
-        <div className="flex flex-col md:flex-row items-center justify-around gap-12 py-16 px-6">
+        <div className="flex flex-col md:flex-row items-center justify-around gap-12 py-16 px-6 max-w-[1440px] mx-auto">
             {/* Text Section */}
             <div className="w-full md:w-1/2 px-4 md:px-0 max-w-2xl space-y-6 text-center md:text-left">
                 <h1 className="text-purple text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">

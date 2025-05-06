@@ -4,7 +4,7 @@ import SectionTitle from '../SharedComp/SectionTitle';
 
 const LifeCycle = () => {
     return (
-        <div className="flex flex-col items-center px-6 py-14 max-w-7xl mx-auto text-white">
+        <div className="flex flex-col items-center px-6 py-14 max-w-[1920px] mx-auto text-white">
             <SectionTitle
                 subHeading="Understand the Key Phases of"
                 heading="Software Development Life Cycle"

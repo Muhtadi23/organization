@@ -31,7 +31,7 @@ const techStack = [
 
 const TechStack = () => {
     return (
-        <section className="py-16 px-4">
+        <section className="py-16 px-4 max-w-[1440px] mx-auto">
             <SectionTitle subHeading="Tech Stack" heading="Modern Tech Stack for Scalable Solutions"/>
             <div className="w-full mx-auto flex flex-wrap justify-center items-center gap-10">
                 {techStack.map((tech, index) => (

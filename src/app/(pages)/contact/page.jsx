@@ -5,90 +5,86 @@ import { FaPhone } from "react-icons/fa6";
 
 const page = () => {
     return (
-        <div className="w-full py-16 px-6 md:px-12 ">
-            {/* Top Section with heading and image */}
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto'>
-                <div className="space-y-6">
-                    <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight text-purple">
-                        Let's Build Something Amazing Together
-                    </h1>
-                    <p className="max-w-xl text-skyBlue md:text-lg">
-                        Ready to transform your business? Our team is here to help you get started with customized software solutions.
-                    </p>
-                </div>
-
-                <div className="flex justify-center">
-                    <Image
-                        src="/contact.png"
-                        width={600}
-                        height={600}
-                        alt="Contact Us"
-                        className="w-full max-w-md object-contain"
-                        priority
-                    />
-                </div>
-            </div>
-
-            {/* Contact Section */}
-            <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 py-16">
-                {/* Left Info Box */}
-                <div className="space-y-6 text-black90">
+        <section className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-10 bg-white rounded-xl shadow-sm">
+            {/* Form */}
+            <div className="bg-white10 p-6 rounded-lg">
+                <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
+                <form className="space-y-4">
                     <div>
-                        <h4 className='text-xl font-semibold mb-2'>Our Location</h4>
-                        <p>2/H, 2/23 Mirpur<br />Dhaka 1216, Bangladesh</p>
-                        <p className='flex items-center gap-2 mt-3 text-black'>
-                            <MdEmail className="text-purple" /> info@skyit-bd.com
-                        </p>
+                        <label className="block mb-1 font-medium">Name</label>
+                        <input type="text" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
                     </div>
-
                     <div>
-                        <h4 className='text-xl font-semibold mt-6'>Say Hello</h4>
-                        <p className='flex items-center gap-2 text-black'>
-                            <FaPhone className="text-purple" /> +092394779303
-                        </p>
+                        <label className="block mb-1 font-medium">Email</label>
+                        <input type="email" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
                     </div>
-                </div>
-
-                {/* Contact Form */}
-                <form className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input
-                            type="text"
-                            placeholder="Name"
-                            className="bg-[#fefafa] w-full px-4 py-3 rounded-full border border-[black] placeholder:text-gray-500 focus:outline-none focus:ring-1"
-                            required
-                        />
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            className="bg-[#fefafa] w-full px-4 py-3 rounded-full border border-[black] placeholder:text-gray-500 focus:outline-none focus:ring-1"
-                            required
-                        />
+                    <div>
+                        <label className="block mb-1 font-medium">Subject</label>
+                        <input type="text" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" />
                     </div>
-
-                    <input
-                        type="text"
-                        placeholder="Subject"
-                        className="bg-[#fefafa] w-full px-4 py-3 rounded-full border border-[black] placeholder:text-gray-500 focus:outline-none focus:ring-1"
-                        required
-                    />
-
-                    <textarea
-                        placeholder="Your Comment"
-                        rows={5}
-                        className="bg-[#fefafa] w-full px-4 py-3 rounded-2xl border border-[black] placeholder:text-gray-500 focus:outline-none focus:ring-1"
-                        required
-                    ></textarea>
-
+                    <div>
+                        <label className="block mb-1 font-medium">Message</label>
+                        <textarea rows={5} className="w-full px-4 py-2 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                    </div>
                     <button
                         type="submit"
-                        className="bg-gradient-to-r from-purple to-skyBlue text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                        className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-md hover:bg-blue-700 transition w-full"
                     >
-                        Send Your Message
+                        Send Message →
                     </button>
                 </form>
             </div>
-        </div>
+
+            {/* Contact Info */}
+            <div className="space-y-6">
+                <h2 className="text-2xl font-bold">Contact Information</h2>
+
+                <div className="flex items-start gap-4">
+                    <span className="text-blue-500 text-xl">📍</span>
+                    <div>
+                        <h4 className="font-semibold">Address</h4>
+                        <p>Dhaka, Bangladesh</p>
+                    </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                    <span className="text-blue-500 text-xl">📞</span>
+                    <div>
+                        <h4 className="font-semibold">Phone</h4>
+                        <p>+880 1322-69516</p>
+                    </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                    <span className="text-blue-500 text-xl">📧</span>
+                    <div>
+                        <h4 className="font-semibold">Email</h4>
+                        <p>codespheresagency@gmail.com</p>
+                    </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                    <span className="text-blue-500 text-xl">🕒</span>
+                    <div>
+                        <h4 className="font-semibold">Business Hours</h4>
+                        <p>Monday – Friday: 9:00 AM – 6:00 PM<br />Saturday – Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9268441556285!2d90.41932571543197!3d23.75090369460809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7a4c8740c6f%3A0x5de3516ad73cb97!2sGulshan%202%2C%20Dhaka%201213!5e0!3m2!1sen!2sbd!4v1617728930013!5m2!1sen!2sbd"
+                        width="100%"
+                        height="200"
+                        style={{ border: 0 }}
+                        allowFullScreen={false}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="rounded-md shadow"
+                    />
+                </div>
+            </div>
+        </section>
     );
 };
 

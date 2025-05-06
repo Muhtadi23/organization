@@ -20,7 +20,7 @@ const team = [
     },
     {
         name: 'Penta',
-        role: 'Ceido Meido',
+        role: 'Cero Meido',
         image: '/Penta.png',
     },
     {
@@ -35,20 +35,20 @@ const Management = () => {
         <div className="px-4 py-12">
             <SectionTitle subHeading="Management" heading="Company Board And Management" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-10 max-w-[1440px] mx-auto">
                 {team.map((member, index) => (
-                    <div key={index} className="text-center space-y-3">
-                        <div className="relative w-full h-[300px] rounded-xl overflow-hidden shadow-md">
+                    <div key={index} className="text-center space-y-4">
+                        <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden shadow-lg">
                             <Image
                                 src={member.image}
                                 alt={member.name}
                                 fill
-                                className="object-cover"
+                                className="object-cover rounded-full"
                             />
                         </div>
                         <div>
-                            <h6 className="text-black text-lg font-semibold">{member.name}</h6>
-                            <p className="text-black90 text-sm">{member.role}</p>
+                            <h3 className="text-black text-3xl font-bold">{member.name}</h3>
+                            <p className="text-skyBlue text-lg">{member.role}</p>
                         </div>
                     </div>
                 ))}

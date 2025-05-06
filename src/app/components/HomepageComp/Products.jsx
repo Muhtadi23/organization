@@ -23,7 +23,7 @@ const products = [
 
 const Products = () => {
     return (
-        <section className="py-16">
+        <section className="py-16 max-w-[1440px] mx-auto">
             {/* Section Title */}
             <SectionTitle heading="Our Products" subHeading="Recent works" />
 

@@ -70,7 +70,7 @@ const OurServices = () => {
     }
 
     return (
-        <section className="w-full py-24 md:py-32">
+        <section className="max-w-[1920px] mx-auto py-24 md:py-32 ">
             <div className="container px-4 md:px-6 mx-auto">
                 <SectionTitle heading="Design. Develop. Roll-Out. Maintain." subHeading="Our Services" />
 
@@ -82,7 +82,7 @@ const OurServices = () => {
                     viewport={{ once: true, amount: 0.1 }}
                 >
                     {cardData.map((card, index) => (
-                        <motion.div key={index} variants={cardVariants} className="group p-8 md:p-10 rounded-xl shadow-sm hover:shadow-lg">
+                        <motion.div key={index} variants={cardVariants} className="group p-8 md:p-10 rounded-xl shadow-lg hover:shadow-2xl">
                             <div className="mb-8 w-14 h-14 flex items-center justify-center border rounded-full border-purple-200">
                                 {React.cloneElement(card.icon, {
                                     className: "h-6 w-6 text-purple transition-transform duration-300 group-hover:scale-110",
