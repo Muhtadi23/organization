@@ -29,10 +29,10 @@ export default function Navbar() {
             scale: 1,
             transition: {
                 type: "spring",
-                stiffness: 200, 
-                damping: 18,
+                stiffness: 80, 
+                damping: 20,
                 delay: 0.2,
-                duration: 1.2,
+                duration: 3,
             },
         },
     }
