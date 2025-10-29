@@ -29,7 +29,7 @@ const testimonials = [
 const Testimonials = () => {
     return (
         <section className="py-16 max-w-[1440px] mx-auto">
-            <SectionTitle subHeading="About Us" heading="What Clients Say About Our Company?" />
+            <SectionTitle subHeading="Whom We Served" heading="Discover Our Clients" />
             <div className="mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {testimonials.map((testimonial, index) => (
                     <div

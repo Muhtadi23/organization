@@ -14,12 +14,11 @@ export default function Navbar() {
     }
 
     const navLinks = [
-        { href: "/", label: "Home" },
         // { href: "/about", label: "About" },
+        { href: "/products", label: "Services" },
+        { href: "/projects", label: "Portfolio" },
         { href: "/company", label: "Company" },
-        { href: "/products", label: "Products" },
         { href: "/blog", label: "Blog" },
-        { href: "/projects", label: "Projects" },
         { href: "/contact", label: "Contact" },
     ]
 
@@ -54,7 +53,7 @@ export default function Navbar() {
     return (
         <div className="w-full sticky top-0 z-50 backdrop-blur-sm">
             {/* Desktop Navigation */}
-            <div className="hidden md:flex justify-between items-center px-8 py-5 max-w-7xl mx-auto">
+            <div className="hidden md:flex justify-between items-center px-8 py-5 max-w-[1440px] mx-auto">
                 <div className="flex items-center">
                     <Link href="/" className="text-2xl font-bold">
                         <span className="flex items-center gap-2 text-purple">

@@ -15,7 +15,7 @@ const StayConnected = () => {
                     <input
                         type="email"
                         placeholder="Enter your email"
-                        className="w-full sm:w-[400px] px-4 py-3 rounded-md border border-blue-300 focus:outline-none focus:ring-1 focus:ring-blue-500 transition"
+                        className="w-full sm:w-[400px] px-4 py-3 rounded-md border text-white border-blue-300 focus:outline-none focus:ring-1 focus:ring-blue-500 transition"
                     />
                     <Button title="Subscribe" />
                 </form>
