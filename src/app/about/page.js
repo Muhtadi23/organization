@@ -29,7 +29,7 @@ export default function About() {
           <div className="w-full md:w-1/2">
             <h2 className="text-sm font-bold text-purple uppercase mb-3">Our Story</h2>
             <h3 className="text-3xl font-bold text-black mb-6">From a small studio to a global digital partner.</h3>
-            <p className="text-black60 text-lg mb-4 leading-relaxed">Founded in 2018, we began with a simple mission: help ambitious brands navigate the digital landscape. Over the years, we've grown from a small team of three into a multidisciplinary agency.</p>
+            <p className="text-black60 text-lg mb-4 leading-relaxed">Founded in 2018, we began with a simple mission: help ambitious brands navigate the digital landscape. Over the years, we&apos;ve grown from a small team of three into a multidisciplinary agency.</p>
             <p className="text-black60 text-lg leading-relaxed">We believe in transparent communication, agile methodologies, and pushing the boundaries of what is possible on the web.</p>
           </div>
           <div className="w-full md:w-1/2">
@@ -108,7 +108,7 @@ export default function About() {
 
       {/* 6. CTA Section */}
       <SectionWrapper className="text-center">
-        <h2 className="text-4xl font-bold text-black mb-6">Let's build something beautiful together.</h2>
+        <h2 className="text-4xl font-bold text-black mb-6">Let&apos;s build something beautiful together.</h2>
         <Button href="/contact" variant="primary">Contact Our Team <ArrowRight size={18} className="ml-2" /></Button>
       </SectionWrapper>
     </div>

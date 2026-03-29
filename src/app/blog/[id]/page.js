@@ -54,17 +54,17 @@ export default async function BlogDetails({ params }) {
           <article className="w-full lg:w-3/4 prose prose-lg prose-headings:text-black prose-p:text-black60 max-w-none">
              <h2 className="text-2xl font-bold text-black mb-4 mt-8">Introduction</h2>
              <p className="text-lg leading-relaxed text-black60 mb-6">
-               In the ever-evolving landscape of software development, staying ahead of {articleName.toLowerCase()} is crucial. We've spent the last six months researching and implementing this across our client projects, and the results have been remarkable.
+               In the ever-evolving landscape of software development, staying ahead of {articleName.toLowerCase()} is crucial. We&apos;ve spent the last six months researching and implementing this across our client projects, and the results have been remarkable.
              </p>
              <h2 className="text-2xl font-bold text-black mb-4 mt-8">The Core Concepts</h2>
              <p className="text-lg leading-relaxed text-black60 mb-6">
                At its heart, the pattern dictates a clear separation of concerns. You have your state management on one side, and your view layer on the other. But what happens when you introduce server-side rendering into the mix?
              </p>
              <div className="bg-[#fbfcff] p-6 rounded-xl border-l-4 border-purple mb-6 text-black90 italic font-medium">
-               "The transition wasn't completely smooth, but the performance gains outweighed the initial learning curve by an order of magnitude."
+               &quot;The transition wasn&apos;t completely smooth, but the performance gains outweighed the initial learning curve by an order of magnitude.&quot;
              </div>
              <p className="text-lg leading-relaxed text-black60 mb-6">
-               When comparing the alternatives, we realized that sticking to the standard approach wouldn't yield the 10x improvement we were aiming for. We had to rethink our fundamental architecture.
+               When comparing the alternatives, we realized that sticking to the standard approach wouldn&apos;t yield the 10x improvement we were aiming for. We had to rethink our fundamental architecture.
              </p>
              <h3 className="text-xl font-bold text-black mb-4 mt-8">Conclusion</h3>
              <p className="text-lg leading-relaxed text-black60 mb-6">

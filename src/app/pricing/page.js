@@ -104,7 +104,7 @@ export default function Pricing() {
             <h2 className="text-3xl font-bold text-black mb-4">Detailed Feature Breakdown</h2>
             <p className="text-black60 text-lg mb-10">We tailor every contract to your exact needs. Contact us for a full capability matrix.</p>
             <div className="p-8 bg-white border border-white80 rounded-2xl shadow-sm text-black60">
-              <span className="italic block mb-4">"Transparent quotes. No surprise bills."</span>
+              <span className="italic block mb-4">&quot;Transparent quotes. No surprise bills.&quot;</span>
               Interactive Comparison Table UI goes here.
             </div>
          </div>
@@ -133,7 +133,7 @@ export default function Pricing() {
       {/* 5. CTA */}
       <SectionWrapper bg="bg-black text-white" className="text-center">
          <h2 className="text-4xl font-bold mb-6">Need a specialized setup?</h2>
-         <p className="text-xl text-white80 mb-10">Let's hop on a call and build a custom package for your exact requirements.</p>
+         <p className="text-xl text-white80 mb-10">Let&apos;s hop on a call and build a custom package for your exact requirements.</p>
          <Button href="/contact" className="bg-white text-black hover:bg-white80">Schedule Consultation</Button>
       </SectionWrapper>
     </div>

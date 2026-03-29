@@ -116,7 +116,7 @@ export default function Home() {
               <div className="flex items-center gap-1 mb-6 text-purple">
                 ★★★★★
               </div>
-              <p className="text-white80 text-lg mb-8 leading-relaxed">"The team completely transformed our digital presence. Traffic increased by 200% and user retention skyrocketed. Absolutely stellar work."</p>
+              <p className="text-white80 text-lg mb-8 leading-relaxed">&quot;The team completely transformed our digital presence. Traffic increased by 200% and user retention skyrocketed. Absolutely stellar work.&quot;</p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-black60 rounded-full flex items-center justify-center font-bold">JD</div>
                 <div>
@@ -133,8 +133,8 @@ export default function Home() {
       <SectionWrapper bg="bg-gradient-to-br from-purple to-skyBlue text-white" className="!py-24">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to start your next project?</h2>
-          <p className="text-xl text-white80 mb-10 leading-relaxed">Join innovative companies that trust us to build their digital future. Let's discuss your vision.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <p className="text-xl text-white80 mb-10 leading-relaxed">Join innovative companies that trust us to build their digital future. Let&apos;s discuss your vision.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="/contact" className="bg-white text-purple hover:bg-white80 shadow-xl">Get in Touch</Button>
             <Button href="/services" className="bg-black/20 text-white hover:bg-black/30 border border-white/30">Explore Services</Button>
           </div>
