@@ -2,13 +2,14 @@ import React from 'react';
 import SectionWrapper from '@/components/ui/SectionWrapper';
 import Button from '@/components/ui/Button';
 import { Users, Target, Zap, Shield, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 export default function About() {
   const team = [
-    { name: "Alice Johnson", role: "CEO & Founder", init: "AJ" },
-    { name: "Bob Smith", role: "CTO", init: "BS" },
-    { name: "Charlie Davis", role: "Head of Design", init: "CD" },
-    { name: "Diana Prince", role: "Lead Engineer", init: "DP" },
+    { name: "Alice Johnson", role: "CEO & Founder", init: "AJ", image: "/PAUL.png" },
+    { name: "Bob Smith", role: "CTO", init: "BS", image: "/Dexter.png" },
+    { name: "Charlie Davis", role: "Head of Design", init: "CD", image: "/Penta.png" },
+    { name: "Diana Prince", role: "Lead Engineer", init: "DP", image: "/Punk.png" },
   ];
 
   return (
@@ -65,11 +66,25 @@ export default function About() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {team.map((member, idx) => (
             <div key={idx} className="group text-center">
-              <div className="w-48 h-48 mx-auto bg-white80 rounded-full mb-6 flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl border-4 border-white">
-                <span className="text-4xl font-bold text-black60 group-hover:text-purple transition-colors">{member.init}</span>
+              <div className="w-48 h-48 mx-auto rounded-full mb-6 overflow-hidden transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-xl border-4 border-white bg-white80">
+
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={192}
+                  height={192}
+                  className="w-full h-full object-cover"
+                />
+
               </div>
-              <h4 className="text-xl font-bold text-black mb-1">{member.name}</h4>
-              <p className="text-black60">{member.role}</p>
+
+              <h4 className="text-xl font-bold text-black mb-1">
+                {member.name}
+              </h4>
+
+              <p className="text-black60">
+                {member.role}
+              </p>
             </div>
           ))}
         </div>
