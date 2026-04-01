@@ -1,18 +1,26 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import SectionWrapper from '@/components/ui/SectionWrapper';
 import Button from '@/components/ui/Button';
 import { BlogCard } from '@/components/ui/Card';
+import { blogPosts, categories, featuredPost } from '@/data/blog';
 
 export default function Blog() {
-  const posts = [
-    { title: "The Future of React in 2025", excerpt: "Exploring server components and the evolving React ecosystem.", date: "Oct 12, 2024", category: "Engineering", slug: "future-of-react" },
-    { title: "Designing for Accessibility", excerpt: "Practical tips to make your SaaS product usable by everyone.", date: "Oct 05, 2024", category: "Design", slug: "accessibility-design" },
-    { title: "Scaling Node.js Backends", excerpt: "Understanding event loops, worker threads, and microservices.", date: "Sep 28, 2024", category: "Architecture", slug: "scaling-nodejs" },
-    { title: "Our Open Source Journey", excerpt: "Why we decided to open source our internal tooling.", date: "Sep 15, 2024", category: "Culture", slug: "open-source-journey" },
-    { title: "Tailwind CSS Best Practices", excerpt: "Structuring your tailwind classes for maximum reusability.", date: "Sep 02, 2024", category: "Engineering", slug: "tailwind-best-practices" },
-  ];
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [visibleCount, setVisibleCount] = useState(4);
 
-  const categories = ["All", "Engineering", "Design", "Architecture", "Culture", "News"];
+  const filteredPosts = activeCategory === "All" 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === activeCategory);
+
+  const visiblePosts = filteredPosts.slice(0, visibleCount);
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 4);
+  };
+
+  const hasMore = visibleCount < filteredPosts.length;
 
   return (
     <div className="flex flex-col min-h-screen bg-[#fbfcff]">
@@ -30,38 +38,42 @@ export default function Blog() {
       <SectionWrapper bg="bg-[#fbfcff]">
         <h2 className="text-2xl font-bold text-black mb-8 border-b border-white80 pb-4">Featured Article</h2>
         <div className="bg-white rounded-3xl overflow-hidden border border-white80 shadow-md flex flex-col md:flex-row">
-           <div className="w-full md:w-1/2 aspect-video md:aspect-auto bg-black90 flex items-center justify-center text-white60">
-              Featured Image
-           </div>
-           <div className="w-full md:w-1/2 p-10 flex flex-col justify-center">
-              <span className="text-sm font-bold text-purple uppercase mb-3 text-skyBlue">Architecture</span>
-              <h3 className="text-3xl font-bold text-black mb-4">Migrating from Monolith to Microservices</h3>
-              <p className="text-black60 text-lg mb-8 leading-relaxed">
-                A deep dive into our recent client project where we decoupled a massive legacy monolith into 15 robust microservices using Node and Go.
-              </p>
-              <Button href="/blog/migrating-monolith" variant="outline" className="self-start">Read Full Story</Button>
-           </div>
+          <div className="w-full md:w-1/2 aspect-video md:aspect-auto bg-black90 flex items-center justify-center text-white60">
+            Featured Image
+          </div>
+          <div className="w-full md:w-1/2 p-10 flex flex-col justify-center">
+            <span className="text-sm font-bold text-purple uppercase mb-3 text-skyBlue">{featuredPost.category}</span>
+            <h3 className="text-3xl font-bold text-black mb-4">{featuredPost.title}</h3>
+            <p className="text-black60 text-lg mb-8 leading-relaxed">
+              {featuredPost.excerpt}
+            </p>
+            <Button href={`/blog/${featuredPost.slug}`} variant="outline" className="self-start">Read Full Story</Button>
+          </div>
         </div>
       </SectionWrapper>
 
       <SectionWrapper bg="bg-white">
         <div className="flex flex-col lg:flex-row gap-12">
-          {/* 3. Categories Sidebar (UI only) */}
+          {/* 3. Categories Sidebar */}
           <div className="w-full lg:w-1/4">
             <div className="sticky top-32">
               <h3 className="text-xl font-bold text-black mb-6">Categories</h3>
               <ul className="space-y-2">
-                {categories.map((cat, idx) => (
-                  <li key={idx}>
-                    <button className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-colors ${
-                      idx === 0 
-                        ? 'bg-black90 text-white' 
-                        : 'bg-white text-black60 hover:bg-[#fbfcff] hover:text-black border border-transparent hover:border-white80'
-                    }`}>
-                      {cat}
-                    </button>
-                  </li>
-                ))}
+                {categories.map((cat, idx) => {
+                  const isActive = cat === activeCategory;
+                  return (
+                    <li key={idx}>
+                      <button 
+                        onClick={() => { setActiveCategory(cat); setVisibleCount(4); }}
+                        className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-colors ${isActive
+                          ? 'bg-black90 text-white'
+                          : 'bg-white text-black60 hover:bg-[#fbfcff] hover:text-black border border-transparent hover:border-white80'
+                        }`}>
+                        {cat}
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
 
               <div className="mt-12 p-6 bg-gradient-to-br from-purple to-skyBlue rounded-2xl text-white">
@@ -75,23 +87,37 @@ export default function Blog() {
 
           {/* 2. Blog Grid/List */}
           <div className="w-full lg:w-3/4">
-             <h3 className="text-2xl font-bold text-black mb-8 border-b border-white80 pb-4">Recent Posts</h3>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-               {posts.map((post, idx) => (
-                 <BlogCard 
-                   key={idx} 
-                   title={post.title} 
-                   excerpt={post.excerpt} 
-                   date={post.date} 
-                   category={post.category} 
-                   href={`/blog/${post.slug}`} 
-                 />
-               ))}
-             </div>
-             
-             <div className="mt-16 text-center">
-               <Button variant="ghost">Load More Articles</Button>
-             </div>
+            <h3 className="text-2xl font-bold text-black mb-8 border-b border-white80 pb-4">
+              {activeCategory === "All" ? "Recent Posts" : `${activeCategory} Posts`}
+            </h3>
+            
+            {visiblePosts.length > 0 ? (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {visiblePosts.map((post, idx) => (
+                    <BlogCard
+                      key={idx}
+                      title={post.title}
+                      excerpt={post.excerpt}
+                      date={post.date}
+                      category={post.category}
+                      href={`/blog/${post.slug}`}
+                    />
+                  ))}
+                </div>
+
+                {hasMore && (
+                  <div className="mt-16 text-center">
+                    <Button variant="ghost" onClick={handleLoadMore}>Load More Articles</Button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="text-center py-20">
+                <p className="text-black60 text-lg">No posts found in this category.</p>
+                <button onClick={() => setActiveCategory("All")} className="mt-4 text-purple hover:text-skyBlue font-medium">Clear Filter</button>
+              </div>
+            )}
           </div>
         </div>
       </SectionWrapper>
