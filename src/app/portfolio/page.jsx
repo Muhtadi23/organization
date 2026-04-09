@@ -20,29 +20,11 @@ export default function Portfolio() {
       img: "/mahrajan.png",
     },
     {
-      title: "E-commerce Redesign",
+      title: "School Management System",
       category: "UI/UX Design",
-      slug: "ecommerce",
-      img: "/ecommerce-redesign.jpg", // Add proper image path
-    },
-    {
-      title: "SaaS Analytics Tool",
-      category: "Web Application",
-      slug: "saas-analytics",
-      img: "/saas-analytics.jpg",
-    },
-    {
-      title: "Real Estate App",
-      category: "Mobile App",
-      slug: "real-estate",
-      img: "/real-estate-app.jpg",
-    },
-    {
-      title: "Logistics Portal",
-      category: "Enterprise Tech",
-      slug: "logistics",
-      img: "/logistics-portal.jpg",
-    },
+      slug: "school",
+      img: "/school.png",
+    }
   ];
 
   const categories = ["All", "Web Application", "UI/UX Design", "Mobile App", "Enterprise Tech"];

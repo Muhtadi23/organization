@@ -5,6 +5,7 @@ import SectionWrapper from '@/components/ui/SectionWrapper';
 import Button from '@/components/ui/Button';
 import { ServiceCard, ProjectCard } from '@/components/ui/Card';
 import { Monitor, Cpu, Globe, ArrowRight, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
   // Featured projects - consistent with your Portfolio page
@@ -160,9 +161,9 @@ export default function Home() {
 
         {/* Optional: Subtle "More projects" hint */}
         <div className="text-center mt-12">
-          <p className="text-black/50 text-sm">
+          <Link href="/portfolio" className="text-black/50 text-sm">
             + 4 more amazing projects in our full portfolio
-          </p>
+          </Link>
         </div>
       </SectionWrapper>
 
@@ -227,12 +228,12 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" className="bg-white text-purple hover:bg-white/90 shadow-xl font-medium">
+            <Button href="/contact" className="bg-black text-white hover:bg-white/90 hover:text-black shadow-xl font-medium">
               Get in Touch
             </Button>
             <Button
               href="/services"
-              className="border border-white/40 hover:bg-white/10 text-white font-medium"
+              className="hover:text-black hover:bg-white font-medium"
             >
               Explore Our Services
             </Button>

@@ -1,12 +1,41 @@
 import React from 'react';
+import { notFound } from 'next/navigation';
 import SectionWrapper from '@/components/ui/SectionWrapper';
 import Button from '@/components/ui/Button';
-import { ArrowLeft, Clock, User } from 'lucide-react';
+import { BlogCard } from '@/components/ui/Card';
+import { blogPosts, featuredPost } from '@/data/blog';
+import { ArrowLeft, Clock } from 'lucide-react';
+
+export async function generateStaticParams() {
+  const allPosts = [...blogPosts, featuredPost];
+  const uniqueSlugs = Array.from(new Set(allPosts.map(p => p.slug)));
+  return uniqueSlugs.map((slug) => ({
+    id: slug,
+  }));
+}
 
 export default async function BlogDetails({ params }) {
   const { id } = await params;
 
-  const articleName = id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  let post = blogPosts.find(p => p.slug === id);
+  if (!post && featuredPost.slug === id) {
+    post = featuredPost;
+  }
+  
+  if (!post) {
+    notFound();
+  }
+
+  const relatedPosts = blogPosts
+    .filter(p => p.category === post.category && p.slug !== post.slug)
+    .slice(0, 3);
+  
+  if (relatedPosts.length < 3) {
+    const extraPosts = blogPosts
+      .filter(p => p.slug !== post.slug && !relatedPosts.find(rp => rp.slug === p.slug))
+      .slice(0, 3 - relatedPosts.length);
+    relatedPosts.push(...extraPosts);
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -17,21 +46,22 @@ export default async function BlogDetails({ params }) {
             <ArrowLeft size={16} className="mr-2" /> Back to Articles
           </Button>
           <div className="flex items-center gap-4 mb-6 text-sm text-black60 font-medium">
-            <span className="px-3 py-1 bg-white text-purple rounded-full">Engineering</span>
-            <span className="flex items-center"><Clock size={16} className="mr-1" /> 5 min read</span>
-            <span>Oct 12, 2024</span>
+            <span className="px-3 py-1 bg-white text-purple rounded-full">{post.category}</span>
+            <span className="flex items-center"><Clock size={16} className="mr-1" /> {post.readTime || "5 min read"}</span>
+            <span>{post.date}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-6 leading-tight">{articleName}</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-6 leading-tight">{post.title}</h1>
           <p className="text-xl text-black60 leading-relaxed mb-8">
-            A comprehensive guide to understanding the nuances of {articleName.toLowerCase()} and how it impacts modern software development.
+            {post.excerpt}
           </p>
         </div>
       </SectionWrapper>
 
       <SectionWrapper className="!py-0 -mt-8 relative z-10 w-full px-0 max-w-none">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="w-full aspect-video bg-black90 rounded-2xl shadow-xl flex items-center justify-center text-white60">
-            Article Header Image
+          <div className="w-full aspect-video bg-black90 rounded-2xl shadow-xl flex items-center justify-center text-white60 overflow-hidden">
+             {/* Note: In a real app, an Image component would go here. */}
+            Article Header Image for &quot;{post.title}&quot;
           </div>
         </div>
       </SectionWrapper>
@@ -41,35 +71,35 @@ export default async function BlogDetails({ params }) {
         <div className="max-w-3xl mx-auto mt-16 flex flex-col items-start lg:flex-row gap-12">
           {/* Author info hidden on mobile, shown on side on desktop */}
           <div className="w-full lg:w-1/4 flex flex-row lg:flex-col items-center lg:items-start gap-4 lg:sticky lg:top-32 border-b lg:border-b-0 border-white80 pb-8 lg:pb-0">
-            <div className="w-16 h-16 bg-white80 rounded-full flex justify-center items-center text-black60 font-bold border-2 border-white">JD</div>
+            <div className="w-16 h-16 bg-white80 rounded-full flex justify-center items-center text-black60 font-bold border-2 border-white">
+              {post.author?.initials || "JD"}
+            </div>
             <div>
-              <p className="font-bold text-black">John Doe</p>
-              <p className="text-sm text-black60">Senior Engineer</p>
+              <p className="font-bold text-black">{post.author?.name || "John Doe"}</p>
+              <p className="text-sm text-black60">{post.author?.role || "Author"}</p>
             </div>
             <div className="hidden lg:flex w-full h-[1px] bg-white80 my-4" />
             <div className="hidden lg:block text-sm text-black60">Share this article</div>
-            {/* Social sharing placeholders */}
+            <div className="hidden lg:flex gap-2 text-black60">
+              <span className="cursor-pointer hover:text-purple transition-colors">Twitter</span>
+              <span className="cursor-pointer hover:text-purple transition-colors">LinkedIn</span>
+            </div>
           </div>
 
           <article className="w-full lg:w-3/4 prose prose-lg prose-headings:text-black prose-p:text-black60 max-w-none">
-            <h2 className="text-2xl font-bold text-black mb-4 mt-8">Introduction</h2>
-            <p className="text-lg leading-relaxed text-black60 mb-6">
-              In the ever-evolving landscape of software development, staying ahead of {articleName.toLowerCase()} is crucial. We&apos;ve spent the last six months researching and implementing this across our client projects, and the results have been remarkable.
-            </p>
-            <h2 className="text-2xl font-bold text-black mb-4 mt-8">The Core Concepts</h2>
-            <p className="text-lg leading-relaxed text-black60 mb-6">
-              At its heart, the pattern dictates a clear separation of concerns. You have your state management on one side, and your view layer on the other. But what happens when you introduce server-side rendering into the mix?
-            </p>
-            <div className="bg-[#fbfcff] p-6 rounded-xl border-l-4 border-purple mb-6 text-black90 italic font-medium">
+            {post.content ? (
+              post.content.split("\n\n").map((paragraph, idx) => (
+                <p key={idx} className="text-lg leading-relaxed text-black60 mb-6">
+                  {paragraph}
+                </p>
+              ))
+            ) : (
+              <p className="text-lg leading-relaxed text-black60 mb-6">Content goes here.</p>
+            )}
+            
+            <div className="bg-[#fbfcff] p-6 rounded-xl border-l-4 border-purple my-8 text-black90 italic font-medium">
               &quot;The transition wasn&apos;t completely smooth, but the performance gains outweighed the initial learning curve by an order of magnitude.&quot;
             </div>
-            <p className="text-lg leading-relaxed text-black60 mb-6">
-              When comparing the alternatives, we realized that sticking to the standard approach wouldn&apos;t yield the 10x improvement we were aiming for. We had to rethink our fundamental architecture.
-            </p>
-            <h3 className="text-xl font-bold text-black mb-4 mt-8">Conclusion</h3>
-            <p className="text-lg leading-relaxed text-black60 mb-6">
-              Implementing {articleName.toLowerCase()} might seem daunting at first, but with the right foundational setup, your team can accelerate feature delivery significantly.
-            </p>
           </article>
         </div>
       </SectionWrapper>
@@ -78,22 +108,16 @@ export default async function BlogDetails({ params }) {
       <SectionWrapper bg="bg-[#fbfcff]">
         <h3 className="text-2xl font-bold text-black mb-8 border-b border-white80 pb-4 text-center">Read Next</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Assuming you have access to the BlogCard component via import. In a real scenario, you'd map related posts. */}
-          <div className="bg-white p-6 rounded-2xl border border-white80 shadow-sm hover:shadow-md transition-shadow">
-            <span className="text-xs font-bold text-purple uppercase">Engineering</span>
-            <h4 className="font-bold text-black mt-2 mb-3">Understanding the Virtual DOM</h4>
-            <p className="text-sm text-black60">A quick primer on how React updates the browser.</p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl border border-white80 shadow-sm hover:shadow-md transition-shadow">
-            <span className="text-xs font-bold text-purple uppercase">Design</span>
-            <h4 className="font-bold text-black mt-2 mb-3">Color Theory in SaaS</h4>
-            <p className="text-sm text-black60">Why blue is dominating B2B applications.</p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl border border-white80 shadow-sm hover:shadow-md transition-shadow hidden lg:block">
-            <span className="text-xs font-bold text-skyBlue uppercase">Architecture</span>
-            <h4 className="font-bold text-black mt-2 mb-3">Choosing a Database</h4>
-            <p className="text-sm text-black60">SQL vs NoSQL in modern web applications.</p>
-          </div>
+          {relatedPosts.map((rp, idx) => (
+            <BlogCard
+              key={idx}
+              title={rp.title}
+              excerpt={rp.excerpt}
+              date={rp.date}
+              category={rp.category}
+              href={`/blog/${rp.slug}`}
+            />
+          ))}
         </div>
       </SectionWrapper>
 

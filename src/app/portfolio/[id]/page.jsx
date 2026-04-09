@@ -5,6 +5,7 @@ import Image from 'next/image';
 import SectionWrapper from '@/components/ui/SectionWrapper';
 import Button from '@/components/ui/Button';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ProjectDetails({ params }) {
   const { id: slug } = use(params);
@@ -15,110 +16,107 @@ export default function ProjectDetails({ params }) {
       title: "Jsb.Online",
       category: "Web Application",
       client: "Valvoline",
-      year: "2024",
+      live: "https://japansolar-valvoline-62ce2c.ingress-haven.ewp.live/",
+      year: "2026",
       role: "End-to-end Development",
       heroImage: "/valvoline.png",
-      overview: "We built a modern, high-performance web platform for Jsb.Online that significantly improved user experience and operational efficiency.",
-      challenge: "The existing platform struggled with slow loading times, poor mobile experience, and limited scalability during peak seasons.",
-      solution: "We redesigned and rebuilt the entire platform using Next.js and a modern tech stack, focusing on performance, SEO, and seamless user flows.",
+      overview:
+        "We built a modern, high-performance web platform for Jsb.Online, significantly improving user experience and operational efficiency.",
+      challenge:
+        "The existing platform suffered from slow loading times, poor mobile responsiveness, and limited scalability during peak traffic.",
+      solution:
+        "We redesigned and rebuilt the platform using Next.js and a modern stack, focusing on performance, SEO, and seamless user journeys.",
       results: [
         "60% faster page load times",
         "3.2x increase in mobile conversions",
         "95% user satisfaction score",
-        "SEO ranking improved dramatically"
+        "Significant improvement in SEO rankings"
       ],
-      techStack: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL", "Vercel"]
+      techStack: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Node.js",
+        "PostgreSQL",
+        "Vercel"
+      ]
+    },
+
+    mahrajan: {
+      title: "Mahrajan Store",
+      category: "Web Application",
+      client: "Mahrajan Store",
+      live: "https://mahrajan.store/",
+      year: "2026",
+      role: "WordPress Development",
+      heroImage: "/mahrajan.png",
+      overview:
+        "A modern and fully functional e-commerce platform built for Mahrajan Store, focused on performance and user experience.",
+      challenge:
+        "The client needed a fast, secure, and scalable online store with smooth checkout and easy inventory management.",
+      solution:
+        "We developed a customized WooCommerce solution with optimized performance, real-time inventory handling, and a streamlined checkout flow.",
+      results: [
+        "40% increase in online sales",
+        "55% reduction in cart abandonment",
+        "Improved mobile shopping experience",
+        "Faster checkout process"
+      ],
+      techStack: ["WordPress", "WooCommerce", "PHP", "MySQL"]
     },
     mahrajan: {
       title: "Mahrajan Store",
       category: "Web Application",
       client: "Mahrajan Store",
-      year: "2025",
-      role: "Full Stack Development",
+      live: "https://mahrajan.store/",
+      year: "2026",
+      role: "WordPress Development",
       heroImage: "/mahrajan.png",
-      overview: "A beautiful and fully functional e-commerce platform built for Mahrajan Store with excellent user experience.",
-      challenge: "Needed a modern online store with fast performance, secure payments, and easy inventory management.",
-      solution: "Developed a custom e-commerce solution with real-time inventory sync and smooth checkout experience.",
+      overview:
+        "A modern and fully functional e-commerce platform built for Mahrajan Store, focused on performance and user experience.",
+      challenge:
+        "The client needed a fast, secure, and scalable online store with smooth checkout and easy inventory management.",
+      solution:
+        "We developed a customized WooCommerce solution with optimized performance, real-time inventory handling, and a streamlined checkout flow.",
       results: [
         "40% increase in online sales",
-        "Reduced cart abandonment by 55%",
-        "Integrated multiple payment gateways",
-        "Mobile-first responsive design"
+        "55% reduction in cart abandonment",
+        "Improved mobile shopping experience",
+        "Faster checkout process"
       ],
-      techStack: ["Next.js", "React", "Stripe", "Sanity CMS", "Tailwind CSS", "Vercel"]
+      techStack: ["WordPress", "WooCommerce", "PHP", "MySQL"]
     },
-    ecommerce: {
-      title: "E-commerce Redesign",
+
+    school: {
+      title: "School Management System",
       category: "UI/UX Design",
-      client: "Fashion Retailer",
+      client: "Mirpur Bangla School",
+      live: "https://school-dashboaord-ui.vercel.app/admin/",
       year: "2024",
       role: "UI/UX Design & Prototyping",
-      heroImage: "/ecommerce-redesign.jpg",
-      overview: "Complete redesign of an outdated e-commerce platform focusing on modern aesthetics and improved conversion rates.",
-      challenge: "Old design was causing high bounce rates and poor user trust.",
-      solution: "Conducted extensive user research and created a fresh, conversion-focused design system.",
+      heroImage: "/school.png",
+      overview:
+        "A complete UI/UX design for a school management system focused on simplicity, usability, and modern design standards.",
+      challenge:
+        "The system needed to handle complex workflows while remaining intuitive and user-friendly for administrators, teachers, and students.",
+      solution:
+        "We designed a clean, structured interface with clear navigation, improving usability and reducing system complexity.",
       results: [
-        "Conversion rate increased by 68%",
-        "Bounce rate reduced by 42%",
-        "Modern, trustworthy visual identity",
-        "Improved accessibility score"
+        "Improved user navigation and workflow clarity",
+        "Reduced learning curve for new users",
+        "Modern and responsive UI design",
+        "Scalable design system for future development"
       ],
-      techStack: ["Figma", "Webflow", "Framer", "User Testing"]
-    },
-    "saas-analytics": {
-      title: "SaaS Analytics Tool",
-      category: "Web Application",
-      client: "Startup SaaS",
-      year: "2025",
-      role: "End-to-end Development",
-      heroImage: "/saas-analytics.jpg",
-      overview: "A powerful analytics dashboard for SaaS companies to track key metrics and user behavior.",
-      challenge: "Client needed a clean, fast, and insightful analytics interface.",
-      solution: "Built a responsive dashboard with real-time data visualization and customizable reports.",
-      results: [
-        "Real-time data processing",
-        "Beautiful interactive charts",
-        "Role-based access control",
-        "High user adoption rate"
-      ],
-      techStack: ["Next.js", "Recharts", "Tailwind CSS", "Supabase", "TypeScript"]
-    },
-    "real-estate": {
-      title: "Real Estate App",
-      category: "Mobile App",
-      client: "Property Group",
-      year: "2024",
-      role: "Mobile App Development",
-      heroImage: "/real-estate-app.jpg",
-      overview: "A modern real estate mobile application for browsing properties, virtual tours, and connecting with agents.",
-      challenge: "Needed an intuitive mobile experience for property discovery.",
-      solution: "Built a cross-platform mobile app with React Native featuring advanced search and AR preview.",
-      results: [
-        "50,000+ downloads in first 3 months",
-        "Excellent app store ratings",
-        "Integrated payment & booking system"
-      ],
-      techStack: ["React Native", "Expo", "Firebase", "Google Maps API"]
-    },
-    logistics: {
-      title: "Logistics Portal",
-      category: "Enterprise Tech",
-      client: "Global Logistics Co.",
-      year: "2025",
-      role: "Enterprise Solution",
-      heroImage: "/logistics-portal.jpg",
-      overview: "Enterprise-grade logistics management portal with real-time tracking and advanced analytics.",
-      challenge: "Complex operations required a unified, scalable digital solution.",
-      solution: "Developed a comprehensive portal connecting drivers, warehouses, and clients in real-time.",
-      results: [
-        "40% reduction in operational costs",
-        "Real-time shipment visibility",
-        "Automated reporting system"
-      ],
-      techStack: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Redis", "AWS"]
+      techStack: [
+        "Figma",
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Zod",
+        "Framer Motion"
+      ]
     }
   };
-
   const project = projects[slug];
 
   // Handle 404 if project doesn't exist
@@ -172,7 +170,12 @@ export default function ProjectDetails({ params }) {
       {/* Hero Image / Screenshot */}
       <SectionWrapper className="!py-0 -mt-12 relative z-10 px-0 max-w-none">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+          <Link
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative aspect-video bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl border-8 border-white block"
+          >
             <Image
               src={project.heroImage}
               alt={project.title}
@@ -180,7 +183,7 @@ export default function ProjectDetails({ params }) {
               className="object-cover"
               priority
             />
-          </div>
+          </Link>
         </div>
       </SectionWrapper>
 
@@ -251,6 +254,6 @@ export default function ProjectDetails({ params }) {
           Start a Conversation
         </Button>
       </SectionWrapper>
-    </div>
+    </div >
   );
 }
